@@ -1,163 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Valentine ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saumya ❤️</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
+<style>
+* { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
-    body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      color: #fff;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  overflow-x: hidden;
+}
 
-    .card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      z-index: 2;
-    }
+/* TOP LINE */
+.top-line {
+  margin-top: 40px;
+  font-size: 2.2em;
+  text-align: center;
+  max-width: 90%;
+  opacity: 1;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  animation: fadeInDown 1.2s ease;
+}
 
-    h1 {
-      margin-bottom: 10px;
-      font-size: 2.2em;
-    }
+@keyframes fadeInDown {
+  from { 
+    opacity: 0; 
+    transform: translateY(-20px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
 
-    p {
-      font-size: 1.1em;
-      margin-bottom: 25px;
-    }
+/* SLIDESHOW SECTION */
+.slideshow {
+  width: 100%;
+  margin: 30px 0 20px;
+  overflow: hidden;
+}
 
-    .buttons {
-      position: relative;
-      height: 120px;
-    }
+.slideshow-track {
+  display: flex;
+  gap: 30px;
+  animation: scroll 60s linear infinite;
+}
 
-    button {
-      border: none;
-      padding: 12px 25px;
-      font-size: 1.1em;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
+.slideshow img {
+  width: 85vw;
+  max-width: 816px;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+  flex-shrink: 0;
+}
 
-    #yesBtn {
-      background: #ff4d6d;
-      color: #fff;
-      margin-right: 10px;
-    }
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-816px * 8 - 30px * 8)); }
+}
 
-    #yesBtn:hover {
-      transform: scale(1.1);
-    }
+/* CARD */
+.card {
+  width: 90%;
+  max-width: 1050px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(14px);
+  border-radius: 30px;
+  padding: 40px 35px 50px;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+  animation: fadeIn 1s ease;
+  margin-top: -168px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 10;
+}
 
-    #noBtn {
-      background: #fff;
-      color: #ff4d6d;
-      position: absolute;
-    }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-    .hidden {
-      display: none;
-    }
+h1 { font-size: 2.8em; margin-bottom: 10px; }
+h2 { font-size: 1.5em; margin: 15px 0; }
+p  { font-size: 1.2em; line-height: 1.3; }
 
-    /* Floating hearts */
-    .heart {
-      position: absolute;
-      bottom: -20px;
-      color: rgba(255,255,255,0.7);
-      font-size: 20px;
-      animation: floatUp 6s linear infinite;
-    }
+.celebration-gifs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0 0 0;
+  flex-wrap: wrap;
+}
 
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-110vh);
-        opacity: 0;
-      }
-    }
-  </style>
+.celebration-gifs img {
+  width: 160px;
+  height: 160px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* BUTTONS */
+.buttons {
+  margin-top: 25px;
+  position: relative;
+  height: 80px;
+}
+
+button {
+  padding: 14px 32px;
+  font-size: 1.1em;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+#yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background: white;
+  color: #ff4d6d;
+  position: absolute;
+  left: 55%;
+  top: 10px;
+  transition: left 0.15s ease, top 0.15s ease;
+}
+
+.funky-message {
+  position: fixed;
+  font-size: 0.9em;
+  font-weight: 700;
+  color: #fff;
+  pointer-events: none;
+  animation: slideDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  white-space: nowrap;
+  z-index: 1000;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  background: rgba(255, 77, 109, 0.9);
+  padding: 6px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 1;
+    transform: scale(0.6) translateY(-20px);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) translateY(50px);
+  }
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  .top-line {
+    font-size: 1.6em;
+    margin-top: 25px;
+    letter-spacing: 0.5px;
+  }
+
+  .slideshow img {
+    width: 90vw;
+    max-width: 500px;
+  }
+
+  .card {
+    padding: 30px 25px 40px;
+    max-width: 95%;
+    margin-top: -180px;
+  }
+
+  h1 { font-size: 2.2em; margin-bottom: 8px; }
+  h2 { font-size: 1.2em; margin: 12px 0; }
+  p  { font-size: 1em; line-height: 1.5; }
+
+  .buttons {
+    height: 70px;
+  }
+
+  button {
+    padding: 12px 28px;
+    font-size: 1em;
+  }
+
+  .celebration-gifs img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-line {
+    font-size: 1.3em;
+    margin-top: 20px;
+  }
+
+  .slideshow img {
+    width: 95vw;
+    max-width: 400px;
+  }
+
+  .card {
+    padding: 25px 20px 35px;
+    margin-top: -150px;
+  }
+
+  h1 { font-size: 1.8em; margin-bottom: 5px; }
+  h2 { font-size: 1em; margin: 10px 0; }
+  p  { font-size: 0.95em; line-height: 1.4; }
+
+  button {
+    padding: 10px 24px;
+    font-size: 0.95em;
+  }
+
+  .celebration-gifs img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* CELEBRATION */
+.hidden { display: none; }
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 22px;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-120vh) translateX(0) rotate(360deg); opacity: 0; }
+}
+
+/* MUSIC BUTTON */
+#musicToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#musicToggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 77, 109, 0.3);
+}
+
+#musicToggle.playing {
+  animation: musicPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="card" id="card">
-    <h1>Hey My Love ❤️</h1>
-    <p>From the moment you came into my life,<br>everything became brighter ✨</p>
+<!-- MUSIC PLAYER -->
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-ukulele.mp3" type="audio/mpeg">
+</audio>
 
-    <h2>Will you be my Valentine? 💖</h2>
+<button id="musicToggle">🔊</button>
 
-    <div class="buttons">
-      <button id="yesBtn">Yes 😍</button>
-      <button id="noBtn">No 🙈</button>
-    </div>
+<!-- TOP ROMANTIC LINE -->
+<div class="top-line">
+  Some stories don’t need words — they just need two hearts ❤️
+</div>
+
+<!-- BIG SLIDESHOW -->
+<div class="slideshow">
+  <div class="slideshow-track">
+    <img src="photos/pic1.jpg" alt="pic1">
+    <img src="photos/pic2.jpg" alt="pic2">
+    <img src="photos/pic3.jpg" alt="pic3">
+    <img src="photos/pic4.jpg">
+    <img src="photos/pic5.jpg">
+    <img src="photos/pic6.jpg">
+    <img src="photos/pic7.jpg">
+    <img src="photos/pic8.jpg">
+
+    <!-- repeated for smooth loop -->
+    <img src="photos/pic1.jpg" alt="pic1">
+    <img src="photos/pic2.jpg" alt="pic2">
+    <img src="photos/pic3.jpg" alt="pic3">
+    <img src="photos/pic4.jpg" alt="pic4">
+    <img src="photos/pic5.jpg" alt="pic5">
+    <img src="photos/pic6.jpg" alt="pic6">
+    <img src="photos/pic7.jpg" alt="pic7">
+    <img src="photos/pic8.jpg" alt="pic8">
   </div>
+</div>
 
-  <div class="card hidden" id="success">
-    <h1>Yaaay!! 🎉❤️</h1>
-    <p>
-      You just made me the happiest person alive 💕<br><br>
-      I can’t wait to make more memories with you,<br>
-      laugh with you, travel with you, and love you more every day 💫
-    </p>
-    <h2>Happy Valentine’s Day 💘</h2>
+<!-- CARD -->
+<div class="card" id="card">
+  <h1>Saumya, my Love ❤️</h1>
+
+  <p>
+    From the moment you came into my life, everything became brighter ✨
+  </p>
+
+  <h2>Will you be my Forever Valentine? 💖</h2>
+
+  <div class="buttons">
+    <button id="yes">Yes 😍</button>
+    <button id="no">No 🙈</button>
   </div>
+</div>
 
-  <script>
-    const noBtn = document.getElementById("noBtn");
-    const yesBtn = document.getElementById("yesBtn");
-    const card = document.getElementById("card");
-    const success = document.getElementById("success");
+<!-- CELEBRATION -->
+<div class="card hidden" id="celebration">
+  <h1>You said YES!! 💕</h1>
+  <p>
+    Good choice! you just upgraded your life! 🚀<br>
+    Now you're stuck with me forever 😄
+  </p>
+  
+  <div class="celebration-gifs">
+    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="hearts">
+  </div>
+</div>
 
-    noBtn.style.left = "120px";
-    noBtn.style.top = "60px";
+<script>
+const no = document.getElementById("no");
+const yes = document.getElementById("yes");
+const card = document.getElementById("card");
+const celebration = document.getElementById("celebration");
+const bgMusic = document.getElementById("bgMusic");
+const musicToggle = document.getElementById("musicToggle");
 
-    noBtn.addEventListener("mouseover", () => {
-      const x = Math.random() * 250;
-      const y = Math.random() * 80;
-      noBtn.style.left = `${x}px`;
-      noBtn.style.top = `${y}px`;
-    });
+let lastMessageTime = 0;
+const messageDelay = 300; // Only show message once per 300ms
 
-    yesBtn.addEventListener("click", () => {
-      card.classList.add("hidden");
-      success.classList.remove("hidden");
-    });
+// Music control
+musicToggle.addEventListener("click", () => {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    musicToggle.classList.add("playing");
+    musicToggle.textContent = "🎵";
+  } else {
+    bgMusic.pause();
+    musicToggle.classList.remove("playing");
+    musicToggle.textContent = "🔊";
+  }
+});
 
-    // Floating hearts generator
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerHTML = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 20 + 15 + "px";
-      document.body.appendChild(heart);
+// Auto-play music on first interaction (due to browser policies)
+document.addEventListener("click", () => {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    musicToggle.classList.add("playing");
+    musicToggle.textContent = "🎵";
+  }
+}, { once: true });
 
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
-    }, 400);
-  </script>
+// Smooth NO movement with better constraints
+no.addEventListener("mousemove", (event) => {
+  const parent = no.parentElement;
+  const padding = 10;
+  
+  const maxX = Math.max(0, parent.offsetWidth - no.offsetWidth - padding);
+  const maxY = Math.max(0, parent.offsetHeight - no.offsetHeight - padding);
+
+  const newX = Math.random() * maxX;
+  const newY = Math.random() * maxY;
+  
+  no.style.left = newX + "px";
+  no.style.top = newY + "px";
+  
+  // Show funky message only once per movement (with delay)
+  const now = Date.now();
+  if (now - lastMessageTime > messageDelay) {
+    showFunkyMessage(event);
+    lastMessageTime = now;
+  }
+});
+
+function showFunkyMessage(event) {
+  const messages = [
+    "no no 😜",
+    "not so easy 😎",
+    "try again 😏",
+    "nope! 👋",
+    "can't catch me 🏃",
+    "lol no 😂",
+    "nice try 😉",
+    "almost 🤏",
+    "keep trying 💪",
+    "you wish 🙃",
+    "no way 🚫",
+    "run away 🏃‍♂️",
+    "not happening 😤"
+  ];
+  
+  const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+  const msg = document.createElement("div");
+  msg.className = "funky-message";
+  msg.textContent = randomMsg;
+  
+  // Position message at cursor location, below cursor
+  const x = event.clientX + (Math.random() - 0.5) * 100;
+  const y = event.clientY + 30;
+  
+  msg.style.left = x + "px";
+  msg.style.top = y + "px";
+  
+  document.body.appendChild(msg);
+  setTimeout(() => msg.remove(), 800);
+}
+
+// YES celebration
+yes.addEventListener("click", () => {
+  card.classList.add("hidden");
+  celebration.classList.remove("hidden");
+
+  for (let i = 0; i < 80; i++) {
+    setTimeout(() => createHeart(), i * 30);
+  }
+});
+
+function createHeart() {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  
+  // Random horizontal position across full viewport
+  h.style.left = Math.random() * window.innerWidth + "px";
+  
+  // Random animation duration (5-9 seconds)
+  const duration = 5 + Math.random() * 4;
+  h.style.animationDuration = duration + "s";
+  
+  // Random delay for staggered start
+  h.style.animationDelay = Math.random() * 0.5 + "s";
+  
+  // Optional: slight horizontal drift
+  const drift = (Math.random() - 0.5) * 100;
+  h.style.setProperty("--drift", drift + "px");
+  
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), (duration + 0.5) * 1000);
+}
+</script>
 
 </body>
 </html>
